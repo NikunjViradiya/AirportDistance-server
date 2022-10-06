@@ -3,6 +3,7 @@ const cors = require("cors");
 const { airport } = require("./data");
 const app = express();
 app.use(cors());
+require("dotenv").config();
 
 app.use("/:key", (req, res) => {
 	try {
@@ -17,6 +18,6 @@ app.use("/:key", (req, res) => {
 	}
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
 	console.log("server running...");
 });
